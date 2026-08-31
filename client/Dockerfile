@@ -6,6 +6,8 @@ COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
 COPY . .
+
+ENV NODE_OPTIONS=--openssl-legacy-provide
 RUN yarn build
 
 FROM nginx:stable-alpine
