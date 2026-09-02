@@ -8,6 +8,7 @@ services:
 
   server:
     build: ./server
+    image: api-server:${BUILD_NUMBER}
     container_name: api-server
     restart: unless-stopped
     ports:
@@ -17,6 +18,7 @@ services:
 
   client:
     build: ./client
+    image: react-app:${BUILD_NUMBER}
     container_name: react-app
     restart: unless-stopped
     ports:
